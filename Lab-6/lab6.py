@@ -6,25 +6,31 @@ from icecream import ic
 # b)	Выведите на экран столицу для определенной страны.
 # c)	Отсортируйте и выведите на экран содержимое словаря в алфавитном порядке названий стран.
 def task_1():
-    countries = {'Россия': 'Москва', 'Испания': 'Мадрид', 'Австралия': 'Канберра', 'Лапландия': 'Рованиеми'}
+    countries = {
+        'Россия': 'Москва',
+        'Испания': 'Мадрид',
+        'Австралия': 'Канберра',
+        'Лапландия': 'Рованиеми'
+    }
     print("Список стран и их столиц: ")
     for key, value in countries.items():
         print(f"{key}: {value}")
 
-    country = input("\nВведите страну: ")
-    if country.title() in countries:
-        print(f"Столица данной страны: {countries[country.title()]}\n")
-    else:
-        print("Такой страны нет в нашем словаре :<\n")
+    # генерирует инвертированный словарь – столица: страна
+    inv_countries: dict = {capital: country for country, capital in countries.items()}
+
+    my_input = input("\nВведите страну или город: ").title()
+    # конструкция get(key, default) – если такого ключа в словаре нет - выполняется default
+    print(countries.get(my_input, inv_countries.get(my_input, 'Такого города или страны нет в нашем словаре')))
 
     list_countries = list(countries.keys())
     list_countries.sort()
-    print("Список стран в алфавитном порядке: ")
+    print("\nСписок стран в алфавитном порядке: ")
     for i in list_countries:
         print(i, ':', countries[i])
 
 
-# task_1()
+task_1()
 
 
 # 6.2)	В игре в слова «Эрудит» каждая буква имеет определенную ценность:
@@ -35,17 +41,21 @@ def task_1():
 # Ш, Э, Ю – 8 очков; Ф, Щ, Ъ – 10 очков.
 # Напишите программу, которая вычисляет стоимость введенного пользователем слова.
 def task_2():
-    erudite = {1: ['А', 'В', 'Е', 'И', 'Н', 'О', 'Р', 'С', 'Т'], 2: ['Д', 'К', 'Л', 'М', 'П', 'У'],
-               3: ['Б', 'Г', 'Ё', 'Ь', 'Я'], 4: ['Й', 'Ы'], 5: ['Ж', 'З', 'Х', 'Ц', 'Ч'],
-               8: ['Ш', 'Э', 'Ю'], 9: ['Ф', 'Щ', 'Ъ']
-               }
-    word = input("Введите любое слово: ").upper()
+    erudite = {
+        1: 'авеинорст',
+        2: 'дклмпу',
+        3: 'бгёья',
+        4: 'йы',
+        5: 'жзхцч',
+        8: 'шэю',
+        9: 'фщъ'
+    }
+    word = input("Введите любое слово: ").lower()
     score = 0
     for letter in word:
-        for key, letters in erudite.items():
-            if letter in letters:
+        for key in erudite:
+            if letter in erudite[key]:
                 score += key
-                break
     print(f"Стоимость слова {word} — {score}")
 
 
@@ -82,5 +92,4 @@ def task_3():
             chinese_speaker.add(student)
     print(f"Китайский язык знают: {', '.join(chinese_speaker)}")
 
-
-task_3()
+# task_3()
