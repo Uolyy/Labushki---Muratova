@@ -4,7 +4,7 @@ import os
 # Функция, которая ищет изображения в текущей директории
 def find_image() -> list | None:
     file_names: list = []
-    extensions = ['.png', '.jpg', '.jpeg', '.bmp', '.gif', '.ico']  # Список возможных расширений файлов
+    extensions = ['.png', '.jpg']  # Список возможных расширений файлов
     for file in os.listdir():  # цикл по текущей директории
         for extension in extensions:
             # если file - файл, оканчивающийся на одно из расширений из списка

@@ -15,6 +15,24 @@ if images:
             im.save('output/' + 'watermarked_' + image)
             wm.close()
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 else:
     print('Файл не найден')
 

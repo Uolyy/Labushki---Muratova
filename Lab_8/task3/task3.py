@@ -27,7 +27,7 @@ fonts: dict = {
     'Calibri жирный': 'calibrib.ttf',
     'Candara': 'Candara.ttf',
     'Candara жирный': 'Candarab.ttf',
-    'Candara жирный курсив (пушка, бомба)': 'Candaraz.ttf',
+    'Candara жирный курсив': 'Candaraz.ttf',
 }
 
 # либо сделать выбор пользователем, жирный шрифт или обычный
