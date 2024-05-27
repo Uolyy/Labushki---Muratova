@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="icon">
+    <file>лапка.png</file>
+    <file>котовое.png</file>
+  </qresource>
+</RCC>
